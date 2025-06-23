@@ -13,7 +13,12 @@
 		"quickfix.biome": "explicit"
 	},
 	"[markdown]": {
-		"editor.wordWrap": "on"
+		"editor.wordWrap": "on",
+		"editor.quickSuggestions": {
+			"other": "on",
+			"comments": "on",
+			"strings": "off"
+		}
 	},
 	"typescript.tsdk": "node_modules/typescript/lib",
 	"astro.content-intellisense": true,
