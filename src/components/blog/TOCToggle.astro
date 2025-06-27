@@ -29,6 +29,8 @@
     const tocToggle = document.getElementById('toc-toggle');
     const tocElement = document.querySelector('[data-toc]');
     const targetHeader = document.getElementById('blog-hero');
+    const flexContainer = tocElement?.parentElement;
+    const proseContent = flexContainer?.querySelector('.prose');
     
     if (!tocToggle || !tocElement || !targetHeader) return;
 
@@ -71,9 +73,25 @@
       if (isTocVisible) {
         tocElement.classList.remove('hidden');
         tocToggle.setAttribute('aria-expanded', 'true');
+        // TOC表示時はFlexレイアウトを維持
+        if (flexContainer) {
+          flexContainer.classList.add('lg:flex-row');
+          flexContainer.classList.remove('lg:flex-col');
+        }
+        if (proseContent) {
+          proseContent.classList.remove('lg:max-w-none');
+        }
       } else {
         tocElement.classList.add('hidden');
         tocToggle.setAttribute('aria-expanded', 'false');
+        // TOC非表示時はコンテンツを全幅に
+        if (flexContainer) {
+          flexContainer.classList.remove('lg:flex-row');
+          flexContainer.classList.add('lg:flex-col');
+        }
+        if (proseContent) {
+          proseContent.classList.add('lg:max-w-none');
+        }
       }
     }
   });
