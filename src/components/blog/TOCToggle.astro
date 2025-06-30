@@ -1,0 +1,88 @@
+---
+---
+
+<button
+  id="toc-toggle"
+  class="fixed top-4 right-4 z-50 rounded-full bg-zinc-200 p-2 shadow-lg transition-all hover:bg-zinc-300 hover:shadow-xl dark:bg-zinc-700 dark:hover:bg-zinc-600 lg:top-6 lg:right-6"
+  aria-label="目次の表示を切り替え"
+  title="目次の表示を切り替え"
+  data-show="true"
+>
+  <svg
+    class="h-5 w-5"
+    fill="none"
+    stroke="currentColor"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M4 6h16M4 12h16M4 18h7"
+    ></path>
+  </svg>
+</button>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tocToggle = document.getElementById('toc-toggle');
+    const tocElement = document.querySelector('[data-toc]');
+    const targetHeader = document.getElementById('blog-hero');
+    const flexContainer = tocElement?.parentElement;
+    const proseContent = flexContainer?.querySelector('.prose');
+    
+    if (!tocToggle || !tocElement || !targetHeader) return;
+
+    // TOC表示状態の管理
+    let isTocVisible = true;
+    
+    // LocalStorageから前回の状態を復元
+    const savedState = localStorage.getItem('toc-visible');
+    if (savedState !== null) {
+      isTocVisible = savedState === 'true';
+    }
+    
+    // 初期状態を適用
+    updateTOCVisibility();
+    
+    // ボタンは常時表示するため、スクロール位置による制御を削除
+    
+    // ボタンクリック時のイベントリスナー
+    tocToggle.addEventListener('click', () => {
+      isTocVisible = !isTocVisible;
+      updateTOCVisibility();
+      localStorage.setItem('toc-visible', isTocVisible.toString());
+    });
+    
+    function updateTOCVisibility() {
+      if (!tocElement || !tocToggle) return;
+      
+      if (isTocVisible) {
+        tocElement.classList.remove('hidden');
+        tocToggle.setAttribute('aria-expanded', 'true');
+        // TOC表示時はFlexレイアウトを維持
+        if (flexContainer) {
+          flexContainer.classList.add('lg:flex-row');
+          flexContainer.classList.remove('lg:flex-col');
+        }
+        if (proseContent) {
+          proseContent.classList.remove('lg:max-w-none');
+          proseContent.classList.remove('w-full');
+        }
+      } else {
+        tocElement.classList.add('hidden');
+        tocToggle.setAttribute('aria-expanded', 'false');
+        // TOC非表示時はコンテンツを全幅に
+        if (flexContainer) {
+          flexContainer.classList.remove('lg:flex-row');
+          flexContainer.classList.add('lg:flex-col');
+        }
+        if (proseContent) {
+          proseContent.classList.add('lg:max-w-none');
+          proseContent.classList.add('w-full');
+        }
+      }
+    }
+  });
+</script>
