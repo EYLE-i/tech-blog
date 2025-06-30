@@ -3,10 +3,10 @@
 
 <button
   id="toc-toggle"
-  class="fixed top-4 right-4 z-50 translate-y-28 rounded-full bg-zinc-200 p-2 opacity-0 shadow-lg transition-all hover:bg-zinc-300 hover:shadow-xl data-[show=true]:translate-y-0 data-[show=true]:opacity-100 dark:bg-zinc-700 dark:hover:bg-zinc-600 lg:top-6 lg:right-6"
+  class="fixed top-4 right-4 z-50 rounded-full bg-zinc-200 p-2 shadow-lg transition-all hover:bg-zinc-300 hover:shadow-xl dark:bg-zinc-700 dark:hover:bg-zinc-600 lg:top-6 lg:right-6"
   aria-label="目次の表示を切り替え"
   title="目次の表示を切り替え"
-  data-show="false"
+  data-show="true"
 >
   <svg
     class="h-5 w-5"
@@ -46,19 +46,7 @@
     // 初期状態を適用
     updateTOCVisibility();
     
-    // スクロール位置によるボタン表示制御
-    function handleButtonVisibility(entries: IntersectionObserverEntry[]) {
-      entries.forEach((entry) => {
-        // blog-heroが画面外に出たらボタンを表示
-        if (tocToggle) {
-          tocToggle.dataset.show = (!entry.isIntersecting).toString();
-        }
-      });
-    }
-    
-    // Intersection Observerでスクロール検知
-    const observer = new IntersectionObserver(handleButtonVisibility);
-    observer.observe(targetHeader);
+    // ボタンは常時表示するため、スクロール位置による制御を削除
     
     // ボタンクリック時のイベントリスナー
     tocToggle.addEventListener('click', () => {
