@@ -1,0 +1,105 @@
+---
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	description: "FocusRewardAppのサポートページ - お問い合わせとよくある質問",
+	title: "サポート - FocusRewardApp",
+};
+---
+
+<PageLayout meta={meta}>
+	<h1 class="title mb-12">サポート</h1>
+	<div class="prose prose-sm prose-cactus max-w-none">
+		<h2>FocusRewardAppについて</h2>
+		<p>
+			FocusRewardAppは、勉強時間を記録し、集中度に応じてボーナス時間を獲得できるiOSアプリです。カメラを使った集中度検知機能により、実際に集中している時間を可視化し、モチベーションの維持をサポートします。
+		</p>
+
+		<h2>お問い合わせ</h2>
+		<p>
+			アプリに関するご質問、不具合の報告、機能のご要望などは、以下のフォームよりお問い合わせください。
+		</p>
+		<p>
+			<a href="https://forms.google.com/placeholder" target="_blank" rel="noopener noreferrer">お問い合わせフォーム(準備中)</a>
+		</p>
+		<p class="text-sm text-gray-500">
+			※ お問い合わせフォームは現在準備中です。準備が整い次第、リンクを更新いたします。
+		</p>
+
+		<h2>よくある質問 (FAQ)</h2>
+
+		<h3>アプリの基本的な使い方</h3>
+		<details>
+			<summary><strong>勉強セッションの開始方法は?</strong></summary>
+			<p>
+				ホーム画面の「勉強開始」ボタンをタップすると、タイマーが起動します。集中度検知機能を使用する場合は、カメラへのアクセスを許可してください。
+			</p>
+		</details>
+
+		<details>
+			<summary><strong>ボーナス時間はどのように獲得できますか?</strong></summary>
+			<p>
+				勉強セッション中、カメラを使用して集中度を検知します。集中していると判定された時間に応じて、自動的にボーナス時間が加算されます。集中度は表情や視線方向から判定されます。
+			</p>
+		</details>
+
+		<details>
+			<summary><strong>カメラを使わずに勉強時間を記録できますか?</strong></summary>
+			<p>
+				はい、可能です。カメラへのアクセスを許可しない場合でも、通常の勉強時間の記録は行えます。ただし、集中度検知機能とボーナス時間の獲得は利用できません。
+			</p>
+		</details>
+
+		<h3>カメラの使用について</h3>
+		<details>
+			<summary><strong>カメラで撮影した顔の画像は保存されますか?</strong></summary>
+			<p>
+				いいえ、保存されません。本アプリは顔の画像データを一切保存しません。カメラから取得した情報はデバイス上でリアルタイムに処理され、集中度スコアの算出後、直ちに破棄されます。詳細は<a href="/focusreward/privacy/">プライバシーポリシー</a>をご覧ください。
+			</p>
+		</details>
+
+		<details>
+			<summary><strong>どのような情報が使われていますか?</strong></summary>
+			<p>
+				本アプリは、AppleのTrueDepth APIとVision Frameworkを使用して、顔の検出、視線方向、表情(眉、目、口の状態)を分析します。これらの情報から集中度スコアを算出しますが、全ての処理はデバイス上で完結し、外部への送信は行いません。
+			</p>
+		</details>
+
+		<details>
+			<summary><strong>Face IDとの関係は?</strong></summary>
+			<p>
+				本アプリはFace IDとは独立して動作します。Face IDで使用されるTrueDepth APIの技術を利用していますが、Face IDの認証データにはアクセスしません。また、本アプリで取得したデータがFace IDに影響を与えることもありません。
+			</p>
+		</details>
+
+		<h3>データの取り扱いについて</h3>
+		<details>
+			<summary><strong>データはどこに保存されますか?</strong></summary>
+			<p>
+				勉強セッションの記録(開始・終了時刻、平均集中度スコア、ボーナス時間)は、お使いのiPhoneのローカルストレージにのみ保存されます。外部サーバーへの送信やクラウド同期は行いません。
+			</p>
+		</details>
+
+		<details>
+			<summary><strong>個人情報は第三者と共有されますか?</strong></summary>
+			<p>
+				いいえ、共有されません。本アプリは、いかなる個人情報も第三者と共有することはありません。詳細は<a href="/focusreward/privacy/">プライバシーポリシー</a>をご確認ください。
+			</p>
+		</details>
+
+		<h3>その他</h3>
+		<details>
+			<summary><strong>対応デバイスは?</strong></summary>
+			<p>
+				集中度検知機能を使用するには、TrueDepth カメラを搭載したiPhone(iPhone X以降)が必要です。カメラを使用しない通常の勉強時間記録機能は、iOS 17以降を搭載したすべてのiPhoneで利用可能です。
+			</p>
+		</details>
+
+		<details>
+			<summary><strong>バグを発見した場合は?</strong></summary>
+			<p>
+				お手数ですが、上記のお問い合わせフォームより詳細をご報告ください。可能な限り、発生した状況やスクリーンショットを添えていただけると助かります。
+			</p>
+		</details>
+	</div>
+</PageLayout>
