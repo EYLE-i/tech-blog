@@ -1,0 +1,108 @@
+---
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	description: "FocusRewardApp Support Page - Contact and Frequently Asked Questions",
+	lang: "en",
+	title: "Support - FocusRewardApp",
+};
+---
+
+<PageLayout meta={meta}>
+	<div class="mb-4 text-right">
+		<a href="/focusreward/support/" class="cactus-link text-sm">日本語</a>
+	</div>
+	<h1 class="title mb-12">Support</h1>
+	<div class="prose prose-sm prose-cactus max-w-none">
+		<h2>About FocusRewardApp</h2>
+		<p>
+			FocusRewardApp is an iOS app that tracks your study time and rewards you with bonus time based on your concentration level. Using camera-based concentration detection, it visualizes the time you're actually focused and helps maintain your motivation.
+		</p>
+
+		<h2>Contact Us</h2>
+		<p>
+			For questions, bug reports, or feature requests, please contact us through the form below.
+		</p>
+		<p>
+			<a href="https://docs.google.com/forms/d/e/1FAIpQLScWDLfQFe2HqX1IpNqlV8t5_IoCIARLsWOq0ZMIsyqSOgqaSg/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="cactus-link">
+				Contact Form
+			</a>
+		</p>
+
+		<h2>Frequently Asked Questions (FAQ)</h2>
+
+		<h3>Basic Usage</h3>
+		<details>
+			<summary><strong>How do I start a study session?</strong></summary>
+			<p>
+				Tap the "Start Study" button on the home screen to launch the timer. If you want to use the concentration detection feature, please allow camera access.
+			</p>
+		</details>
+
+		<details>
+			<summary><strong>How can I earn bonus time?</strong></summary>
+			<p>
+				During a study session, the app uses the camera to detect your concentration level. Bonus time is automatically added based on the time you're determined to be focused. Concentration is evaluated based on facial expressions and gaze direction.
+			</p>
+		</details>
+
+		<details>
+			<summary><strong>Can I track study time without using the camera?</strong></summary>
+			<p>
+				Yes, you can. Even if you don't grant camera access, you can still record regular study time. However, the concentration detection feature and bonus time earning will not be available.
+			</p>
+		</details>
+
+		<h3>About Camera Usage</h3>
+		<details>
+			<summary><strong>Are facial images captured by the camera saved?</strong></summary>
+			<p>
+				No, they are not saved. This app does not save any facial image data. Information obtained from the camera is processed in real-time on your device, and is immediately discarded after calculating the concentration score. For details, please see our <a href="/en/focusreward/privacy/">Privacy Policy</a>.
+			</p>
+		</details>
+
+		<details>
+			<summary><strong>What information is being used?</strong></summary>
+			<p>
+				This app uses Apple's TrueDepth API and Vision Framework to analyze face detection, gaze direction, and facial expressions (eyebrow, eye, and mouth states). Concentration scores are calculated from this information, but all processing is completed on your device and no data is transmitted externally.
+			</p>
+		</details>
+
+		<details>
+			<summary><strong>What's the relationship with Face ID?</strong></summary>
+			<p>
+				This app operates independently from Face ID. While it utilizes the TrueDepth API technology used by Face ID, it does not access Face ID authentication data. Additionally, data obtained by this app does not affect Face ID.
+			</p>
+		</details>
+
+		<h3>About Data Handling</h3>
+		<details>
+			<summary><strong>Where is data stored?</strong></summary>
+			<p>
+				Study session records (start/end times, average concentration score, bonus time) are stored only in your iPhone's local storage. No data is sent to external servers or synced to the cloud.
+			</p>
+		</details>
+
+		<details>
+			<summary><strong>Is personal information shared with third parties?</strong></summary>
+			<p>
+				No, it is not shared. This app does not share any personal information with third parties. For details, please refer to our <a href="/en/focusreward/privacy/">Privacy Policy</a>.
+			</p>
+		</details>
+
+		<h3>Other</h3>
+		<details>
+			<summary><strong>What devices are supported?</strong></summary>
+			<p>
+				To use the concentration detection feature, an iPhone with a TrueDepth camera (iPhone X or later) is required. The regular study time tracking feature (without camera) is available on all iPhones running iOS 17 or later.
+			</p>
+		</details>
+
+		<details>
+			<summary><strong>What should I do if I find a bug?</strong></summary>
+			<p>
+				Please report it through the contact form above. If possible, include details about the situation and screenshots, which would be very helpful.
+			</p>
+		</details>
+	</div>
+</PageLayout>

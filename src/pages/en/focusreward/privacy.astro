@@ -1,0 +1,91 @@
+---
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	description: "FocusRewardApp Privacy Policy - TrueDepth API Usage and Data Handling",
+	lang: "en",
+	title: "Privacy Policy - FocusRewardApp",
+};
+---
+
+<PageLayout meta={meta}>
+	<div class="mb-4 text-right">
+		<a href="/focusreward/privacy/" class="cactus-link text-sm">日本語</a>
+	</div>
+	<h1 class="title mb-12">Privacy Policy</h1>
+	<div class="prose prose-sm prose-cactus max-w-none">
+		<h2>Introduction</h2>
+		<p>
+			FocusRewardApp (hereinafter "the App") is an iOS application that supports study time tracking and concentration detection. This Privacy Policy explains how personal information and data are handled in the App.
+		</p>
+
+		<h2>TrueDepth API / Camera Usage</h2>
+		<p>
+			The App provides a feature to detect concentration levels during study mode and award bonus time based on focused study time. To enable this feature, the App uses Apple's TrueDepth API, ARKit, and Vision Framework.
+		</p>
+
+		<h3>Information Collected</h3>
+		<p>The App temporarily acquires the following information to detect concentration levels:</p>
+		<ul>
+			<li>Face detection presence</li>
+			<li>Gaze direction</li>
+			<li>Facial expression data (eyebrow, eye, and mouth states)</li>
+			<li>Concentration scores calculated from the above</li>
+		</ul>
+
+		<h3>Purpose of Use</h3>
+		<p>
+			This information is used solely to determine whether the user is focused on studying and to calculate bonus time based on the focused duration. Specifically, the App uses ARKit's <code>ARFaceTrackingConfiguration</code> and Vision Framework to evaluate concentration levels in real-time.
+		</p>
+
+		<h2>Face Data Handling</h2>
+		<p>
+			The App prioritizes user privacy above all else. The following policies are strictly followed regarding face data handling:
+		</p>
+
+		<h3>On-Device Processing</h3>
+		<p>
+			All face data and concentration calculations are processed exclusively on your iPhone device. No data is transmitted to external servers.
+		</p>
+
+		<h3>Data Non-Storage</h3>
+		<ul>
+			<li>No facial image data is saved</li>
+			<li>No biometric information (such as facial landmark data) is saved</li>
+			<li>Expression data acquired during sessions is immediately discarded after concentration score calculation</li>
+			<li>All temporary data is discarded after session completion</li>
+		</ul>
+
+		<h3>Data That Is Saved</h3>
+		<p>
+			The only data permanently saved by the App is the following session summary data:
+		</p>
+		<ul>
+			<li>Session start and end times</li>
+			<li>Average concentration score during the session (numerical value)</li>
+			<li>Bonus time earned</li>
+		</ul>
+		<p>
+			This data does not include any facial images or biometric information.
+		</p>
+
+		<h2>Third-Party Sharing</h2>
+		<p>
+			The App does not share any personal information, including face data, with third parties. Additionally, no data is transmitted over the network.
+		</p>
+
+		<h2>Data Storage Location</h2>
+		<p>
+			Session summary data is stored only in the device's local storage using SwiftData. No data is sent to external servers or synced to the cloud.
+		</p>
+
+		<h2>Contact</h2>
+		<p>
+			If you have any questions or concerns about this Privacy Policy, please contact us via the <a href="/en/focusreward/support/">Support Page</a>.
+		</p>
+
+		<p class="text-sm text-gray-500 mt-8">
+			Last Updated: January 29, 2026
+		</p>
+	</div>
+</PageLayout>
